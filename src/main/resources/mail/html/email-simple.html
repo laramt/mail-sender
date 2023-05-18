@@ -31,6 +31,10 @@
 You have been successfully subscribed to the <b>newsletter</b> on
 <span th:text="${#dates.format(sendDateEmail)}"> </span>
 
-<p>Thank you!</p>
-<img src="../../../mail/images/banner.png" th:src="|cid:${imageResourceName}|" /></body>
+</body>
+
+<div class="footer">
+    <p>Thank you!</p>
+    <img src="../../../mail/images/banner.png" th:src="|cid:${imageResourceName}|" />
+</div>
 </html>

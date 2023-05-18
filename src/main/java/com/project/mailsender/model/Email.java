@@ -18,20 +18,20 @@ import java.time.LocalDateTime;
         private String recipientName;
         private String subject;
         @Column(columnDefinition = "TEXT")
-        private String content;
+        private String text;
         private String pathToAttachment;
         private LocalDateTime sendDateEmail;
 
         public Email() {
         }
 
-        public Email(Long id, String emailFrom, String emailTo, String recipientName, String subject, String content, String pathToAttachment, LocalDateTime sendDateEmail) {
+        public Email(Long id, String emailFrom, String emailTo, String recipientName, String subject, String text, String pathToAttachment, LocalDateTime sendDateEmail) {
             this.id = id;
             this.emailFrom = emailFrom;
             this.emailTo = emailTo;
             this.recipientName = recipientName;
             this.subject = subject;
-            this.content = content;
+            this.text = text;
             this.pathToAttachment = pathToAttachment;
             this.sendDateEmail = sendDateEmail;
         }
@@ -76,12 +76,12 @@ import java.time.LocalDateTime;
             this.subject = subject;
         }
 
-        public String getContent() {
-            return content;
+        public String getText() {
+            return text;
         }
 
-        public void setContent(String content) {
-            this.content = content;
+        public void setText(String text) {
+            this.text = text;
         }
 
         public String getPathToAttachment() {

@@ -1,6 +1,7 @@
 package com.project.mailsender.config;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EnvironmentAware;
@@ -41,10 +42,9 @@ public class SpringMailConfig implements ApplicationContextAware, EnvironmentAwa
     }
 
     @Bean
+    @Qualifier("emailTemplateEngine")
     public TemplateEngine emailTemplateEngine() {
         final SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        // Resolver for TEXT emails
-        templateEngine.addTemplateResolver(textTemplateResolver());
         // Resolver for HTML emails (except the editable one)
         templateEngine.addTemplateResolver(htmlTemplateResolver());
         // Resolver for HTML editable emails (which will be treated as a String)
