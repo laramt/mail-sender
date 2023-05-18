@@ -7,6 +7,8 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import org.thymeleaf.context.Context;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class EmailService {
@@ -91,6 +94,14 @@ public class EmailService {
 
         emailSender.send(message);
         return repository.save(email);
+    }
+
+    public Page<Email> findAll(Pageable pageable){
+        return repository.findAll(pageable);
+    }
+
+    public Optional<Email> findById(Long id){
+        return repository.findById(id);
     }
 
 }
