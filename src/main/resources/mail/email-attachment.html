@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Template</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            color: #333333;
+        }
+
+        h1 {
+            color: #046906;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hello, <span th:text="${recipientName}"></span>!</h1>
+<p>This is an email with attachment being sent using a Java/Spring application with Thymeleaf.</p>
+
+You have been successfully subscribed to the <b>newsletter</b> on
+<span th:text="${#dates.format(sendDateEmail)}"> </span>
+
+<p>
+    You can find a file <b>attached</b> to this message.
+</p>
+
+<p>Thank you!</p>
+<img src="../../../mail/images/banner.png" th:src="|cid:${imageResourceName}|" /></body>
+</html>
