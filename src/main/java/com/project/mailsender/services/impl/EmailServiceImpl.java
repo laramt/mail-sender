@@ -5,9 +5,7 @@ import com.project.mailsender.model.Email;
 import com.project.mailsender.repositories.EmailRepository;
 
 import com.project.mailsender.services.EmailService;
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.AllArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
