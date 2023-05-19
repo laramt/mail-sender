@@ -45,19 +45,10 @@ To run this Java Spring project locally, please follow the instructions below:
 1. Clone the repository to your local machine:
 
 ```bash
-  git clone <https://github.com/laramt/mail-sender>
+  git clone https://github.com/laramt/mail-sender
   ````
-2. Navigate to the project directory:
-
-````bash
-cd <email-sender>
-````
-
-3. Build the project using Maven:
- ````bash
-mvn clean install
- ````
-
+2. Open the backend folder in your preferred IDE.
+<br></br>
 4. Configure the application properties:
 
   - Open the `application.properties` file located in the src/main/resources directory.
@@ -82,7 +73,9 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 
 Replace your_smtp_host, your_smtp_port, your_username, and your_password with your specific SMTP server details. Ensure that you have the appropriate credentials and SMTP server information from your email service provider.
 
-5. Run the application
+4. Build the project using Maven.
+<br></br>
+5. Run the application.
 
 
 ## Contact
