@@ -4,6 +4,7 @@ import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.model.Email;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.MessagingException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,20 +17,26 @@ import java.util.Optional;
 
 
 @RestController
+@AllArgsConstructor
 public class EmailResource {
 
-    @Autowired
-    EmailService service;
+    private final EmailService service;
 
-    @PostMapping("/send-email-simple-template")
-    public ResponseEntity<EmailDTO> sendSimpleEmail(@RequestBody EmailDTO dto) throws MessagingException {
-        service.sendSimpleEmail(dto);
+    @PostMapping("/send-email")
+    public ResponseEntity<EmailDTO> sendEmail(@RequestBody EmailDTO dto) throws MessagingException {
+        service.sendTemplateEmail(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    }
+
+    @PostMapping("/send-template-email")
+    public ResponseEntity<EmailDTO> sendTemplateEmail(@RequestBody EmailDTO dto) throws MessagingException {
+        service.sendTemplateEmail(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PostMapping("/send-email-attachment-template")
-    public ResponseEntity<EmailDTO> sendAttachmentEmail(@RequestBody EmailDTO dto) throws MessagingException {
-        service.sendEmailwithAttachment(dto);
+    public ResponseEntity<EmailDTO> sendTemplateEmailwithAttachment(@RequestBody EmailDTO dto) throws MessagingException {
+        service.sendTemplateEmailwithAttachment(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 

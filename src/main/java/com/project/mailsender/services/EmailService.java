@@ -8,7 +8,6 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.AllArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,9 +20,7 @@ import org.thymeleaf.context.Context;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -41,8 +38,31 @@ public class EmailService {
     @Qualifier("emailTemplateEngine")
     private final TemplateEngine htmlTemplateEngine;
 
+    public Email sendEmail(EmailDTO dto) throws MessagingException {
+       Email email = new Email();
+       email = dtoToEntity(email, dto);
 
-    public Email sendSimpleEmail(EmailDTO dto) throws MessagingException {
+        email.setSendDateEmail(LocalDateTime.now());
+
+        MimeMessage message = emailSender.createMimeMessage();
+
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setFrom(email.getEmailFrom());
+        helper.setTo(email.getEmailTo());
+        helper.setSubject(email.getSubject());
+        helper.setText(email.getText());
+
+        File file = new File(email.getPathToAttachment());
+        helper.addAttachment(file.getName(), file);
+
+        emailSender.send(message);
+        return repository.save(email);
+
+    }
+
+
+    public Email sendTemplateEmail(EmailDTO dto) throws MessagingException {
 
         Email email = new Email();
         email = dtoToEntity(email, dto);
@@ -74,7 +94,7 @@ public class EmailService {
         return repository.save(email);
     }
 
-    public Email sendEmailwithAttachment(EmailDTO dto) throws MessagingException {
+    public Email sendTemplateEmailwithAttachment(EmailDTO dto) throws MessagingException {
 
         Email email = new Email();
         email = dtoToEntity(email, dto);
