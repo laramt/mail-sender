@@ -14,7 +14,6 @@ public class EmailDTO {
     private String emailTo;
     private String recipientName;
     private String subject;
-    @Column(columnDefinition = "TEXT")
     private String text;
     private String pathToAttachment;
     private LocalDateTime sendDateEmail;
