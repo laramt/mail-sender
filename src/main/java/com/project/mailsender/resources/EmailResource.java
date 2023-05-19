@@ -1,5 +1,6 @@
 package com.project.mailsender.resources;
 
+import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.model.Email;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.MessagingException;
@@ -21,19 +22,19 @@ public class EmailResource {
     EmailService service;
 
     @PostMapping("/send-email-simple-template")
-    public ResponseEntity<Email> sendSimpleEmail(@RequestBody Email email) throws MessagingException {
-        service.sendSimpleEmail(email);
-        return new ResponseEntity<>(email, HttpStatus.CREATED);
+    public ResponseEntity<EmailDTO> sendSimpleEmail(@RequestBody EmailDTO dto) throws MessagingException {
+        service.sendSimpleEmail(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @PostMapping("/send-email-attachment-template")
-    public ResponseEntity<Email> sendAttachmentEmail(@RequestBody Email email) throws MessagingException {
-        service.sendEmailwithAttachment(email);
-        return new ResponseEntity<>(email, HttpStatus.CREATED);
+    public ResponseEntity<EmailDTO> sendAttachmentEmail(@RequestBody EmailDTO dto) throws MessagingException {
+        service.sendEmailwithAttachment(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @GetMapping("/emails")
-    public ResponseEntity<Page<Email>> getAllEmails(@PageableDefault Pageable pageable){
+    public ResponseEntity<Page<EmailDTO>> getAllEmails(@PageableDefault Pageable pageable){
         return new ResponseEntity<>(service.findAll(pageable), HttpStatus.OK);
     }
 
