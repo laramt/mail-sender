@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/Java-17-yellow.svg">
   </a>
   <a href="https://spring.io/">
-    <img src="https://img.shields.io/badge/Spring-3.0.6-green.svg">
+    <img src="https://img.shields.io/badge/Spring-3.0.7-green.svg">
   </a>
 </p>
 
