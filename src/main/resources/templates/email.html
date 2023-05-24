@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring email with Thymeleaf</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../email.css" th:href="@{/email.css}" />
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Email template</h2>
+  <form action="sent.html" th:action="@{/sendMailWithAttachment}" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <div class="form-group">
+        <label for="attachRecipientName">To (name):</label>
+        <input type="text" id="attachRecipientName" name="recipientName" placeholder="John Smith" required="required" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="attachRecipientEmail">To (email):</label>
+        <input type="email" id="attachRecipientEmail" name="recipientEmail" placeholder="johnsmith@example.com" required="required" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="attachAttachment">Attachment (max 10Mb):</label>
+        <input type="file" id="attachAttachment" name="attachment" required="required" class="form-control-file" />
+      </div>
+      <input type="submit" value="Send mail" class="btn btn-primary" />
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

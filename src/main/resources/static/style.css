@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root {
+  --primary-color: #014D4E;
+  --white: #ffffff;
+  --light-green: #E1F3E3;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+a {
+text-decoration: none;
+}
+
+/*
+.header {
+    min-height:50px;
+}
+
+.navbar {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 20px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 25px;
+}
+
+.navbar-nav {
+  display: flex;
+}
+
+.navbar-nav a {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.navbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.navbar-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+.nav-link-container:hover {
+    background: #f8f9fa;
+}
+*/
+
+.jumbotron-container {
+    border-radius: 10px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 70px 150px;
+    background-color: var(--light-green);
+}
+
+.jumbotron {
+    background-color: #fff;
+    padding: 40px;
+    text-align: left;
+}
+
+.jumbotron-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.jumbotron-description {
+    font-size: 18px;
+    color: #555;
+}
+
+.separator {
+    border: 1px solid dark-green;
+    margin: 20px 0;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #5C8F62;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #73B47B;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #E8E8E8;
+    color: var(--white);
+    padding: 10px 0;
+}

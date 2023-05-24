@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Sender</title>
+  <link rel="stylesheet" type="text/css" media="all"
+        href="../static/style.css" th:href="@{/style.css}" />
+</head>
+<body>
+
+<!--
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="logo">EMAIL SENDER</div>
+    <div class="navbar-nav">
+      <div class="nav-link-container">
+        <a href="/">Home</a>
+        <a href="about.html" th:href="@{/about}">About</a>
+      </div>
+    </div>
+  </div>
+</header>
+-->
+
+<header class="navbar" th:include="fragments :: header"></header>
+
+<section class="jumbotron">
+  <div class="jumbotron-container">
+    <h1 class="jumbotron-title">Welcome to Email Sender</h1>
+    <p class="jumbotron-description">Send emails easily with our email sending system powered by Java, Spring, and Thymeleaf.</p>
+    <hr class="separator">
+    <p>Start sending beautiful emails with just a few clicks.</p>
+    <a class="btn" href="#" role="button">Start here</a>
+  </div>
+</section>
+
+<footer class="footer">
+    <p class="footer-text">&copy; 2023 Email Sender. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
