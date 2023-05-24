@@ -35,15 +35,13 @@ public class EmailServiceImpl implements EmailService {
 
     private final EmailMapper mapper;
 
-    public Email sendEmail(EmailDTO dto) {
+    public EmailDTO sendEmail(EmailDTO dto) {
         try {
-            Email email = new Email();
-
+            Email email = mapper.toEmail(dto);
 
             email.setSendDateEmail(LocalDateTime.now());
 
             MimeMessage message = emailSender.createMimeMessage();
-
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
             helper.setFrom(email.getEmailFrom());
@@ -55,14 +53,15 @@ public class EmailServiceImpl implements EmailService {
             helper.addAttachment(file.getName(), file);
 
             emailSender.send(message);
-            return repository.save(email);
+            repository.save(email);
+            return mapper.toEmailDTO(email);
         } catch (Exception e) {
             throw new RuntimeException("Failed to send email.", e);
         }
     }
 
 
-    public Email sendTemplateEmail(EmailDTO dto) {
+    public EmailDTO sendTemplateEmail(EmailDTO dto) {
 
         try {
             Email email = mapper.toEmail(dto);
@@ -91,13 +90,14 @@ public class EmailServiceImpl implements EmailService {
             email.setSendDateEmail(LocalDateTime.now());
 
             emailSender.send(message);
-            return repository.save(email);
+            repository.save(email);
+            return mapper.toEmailDTO(email);
         } catch (Exception e) {
             throw new RuntimeException("Failed to send email.", e);
         }
     }
 
-    public Email sendTemplateEmailwithAttachment(EmailDTO dto) {
+    public EmailDTO sendTemplateEmailwithAttachment(EmailDTO dto) {
 
         try {
             Email email = mapper.toEmail(dto);
@@ -130,7 +130,8 @@ public class EmailServiceImpl implements EmailService {
             email.setSendDateEmail(LocalDateTime.now());
 
             emailSender.send(message);
-            return repository.save(email);
+            repository.save(email);
+            return mapper.toEmailDTO(email);
         } catch (Exception e) {
             throw new RuntimeException("Failed to send email.", e);
         }
@@ -141,7 +142,8 @@ public class EmailServiceImpl implements EmailService {
     }
 
     public EmailDTO findById(Long id) {
-        Email email = repository.findById(id).orElseThrow(() -> new RuntimeException("No email with id: " + id));
+        Email email = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No email with id: " + id));
         return mapper.toEmailDTO(email);
     }
 

@@ -1,17 +1,16 @@
 package com.project.mailsender.services;
 
 import com.project.mailsender.dtos.EmailDTO;
-import com.project.mailsender.model.Email;
 
 import java.util.List;
 
 public interface EmailService {
 
-    Email sendEmail(EmailDTO dto);
+    EmailDTO sendEmail(EmailDTO dto);
 
-    Email sendTemplateEmail(EmailDTO dto);
+    EmailDTO sendTemplateEmail(EmailDTO dto);
 
-    Email sendTemplateEmailwithAttachment(EmailDTO dto);
+    EmailDTO sendTemplateEmailwithAttachment(EmailDTO dto);
 
     List<EmailDTO> findAll();
 
