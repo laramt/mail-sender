@@ -7,18 +7,9 @@
 </head>
 <body>
 
-<!--
-<header class="navbar" th:include="fragments :: header"></header>
--->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    </button>
-        <div class="navbar-nav ">
-            <a class="nav-item nav-link active" href="#">Home</a>
-            <a class="nav-item nav-link" th:href=@{/about}>About</a>
-        </div>
-</nav>
+<header th:include="fragments :: header"></header>
+
 
 <div class="container mt-4">
     <div class="jumbotron">
@@ -54,12 +45,7 @@
     </div>
 </div>
 
-<footer class="footer bg-dark text-center py-3 mt-4 fixed-bottom">
-    <div class="container">
-        <p class="small text-white">&copy; 2023 Email Sender.</p>
-    </div>
-</footer>
+<footer th:include="fragments :: footer"></footer>
 
-</body>
 </body>
 </html>
