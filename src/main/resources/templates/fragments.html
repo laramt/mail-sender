@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="navbar">
         <a class="navbar-brand" href="#">Navbar</a>
         </button>
         <div class="navbar-nav ">
@@ -21,8 +21,8 @@
 </header>
 
 <footer>
-    <div class="footer bg-dark text-center py-3 mt-4 fixed-bottom">
-        <p class="small text-white">&copy; 2023 Email Sender.</p>
+    <div class="footer bg-dark text-center py-3 mt-4 fixed-bottom" th:fragment="footer">
+        <p class="small text-white"> &copy 2023 Email Sender.</p>
     </div>
 </footer>
 
