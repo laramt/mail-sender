@@ -29,4 +29,10 @@ public class MainResource {
         ModelAndView mv = new ModelAndView("email");
         return mv;
     }
+
+    @GetMapping("/template")
+    public ModelAndView emailTemplateForm( ){
+        ModelAndView mv = new ModelAndView("template");
+        return mv;
+    }
 }
