@@ -3,6 +3,7 @@ package com.project.mailsender.resources;
 import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.MessagingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +15,8 @@ import java.util.List;
 @RestController
 public class EmailResource {
 
-    private final EmailService service;
-
-    public EmailResource(EmailService service) {
-        this.service = service;
-    }
+    @Autowired
+    EmailService service;
 
     @GetMapping("/home")
     public ModelAndView home( ){

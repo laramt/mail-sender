@@ -4,16 +4,17 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.model.Email;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class EmailMapper {
 
-    private final ModelMapper mapper;
+    @Autowired
+    ModelMapper mapper;
 
     public Email toEmail(EmailDTO dto) {
         return mapper.map(dto, Email.class);
