@@ -3,36 +3,20 @@ package com.project.mailsender.resources;
 import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.MessagingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 
 @RestController
+@RequestMapping("/email")
 public class EmailResource {
 
-    private final EmailService service;
-
-    public EmailResource(EmailService service) {
-        this.service = service;
-    }
-
-    @GetMapping("/home")
-    public ModelAndView home( ){
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
-    }
-
-    @GetMapping("/about")
-    public ModelAndView aboutPage() {
-        ModelAndView mv = new ModelAndView("about");
-        return mv;
-    }
-
-
+    @Autowired
+    EmailService service;
 
     @PostMapping("/send-email")
     public ResponseEntity<EmailDTO> sendEmail(@RequestBody EmailDTO dto) throws MessagingException {

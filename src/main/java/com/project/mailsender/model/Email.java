@@ -14,13 +14,9 @@ public class Email implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
     private String emailFrom;
-    @Column(nullable = false)
     private String emailTo;
-    @Column(nullable = false)
     private String recipientName;
-    @Column(nullable = false)
     private String subject;
     @Column(columnDefinition = "TEXT")
     private String text;
