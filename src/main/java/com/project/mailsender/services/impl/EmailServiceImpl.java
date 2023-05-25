@@ -39,7 +39,7 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     EmailMapper mapper;
 
-    
+
     public EmailDTO sendEmail(EmailDTO dto) {
         try {
             Email email = mapper.toEmail(dto);

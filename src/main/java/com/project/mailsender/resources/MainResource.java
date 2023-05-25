@@ -1,38 +1,28 @@
 package com.project.mailsender.resources;
 
-import com.project.mailsender.services.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class MainResource {
-
-    @Autowired
-    EmailService service;
-
+    
     @GetMapping("/home")
-    public ModelAndView home( ){
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
+    public String home() {
+        return "index";
     }
 
     @GetMapping("/about")
-    public ModelAndView aboutPage() {
-        ModelAndView mv = new ModelAndView("about");
-        return mv;
+    public String aboutPage() {
+        return "about";
     }
 
     @GetMapping("/email")
-    public ModelAndView emailForm( ){
-        ModelAndView mv = new ModelAndView("email");
-        return mv;
+    public String emailForm() {
+        return "email";
     }
 
     @GetMapping("/template")
-    public ModelAndView emailTemplateForm( ){
-        ModelAndView mv = new ModelAndView("template");
-        return mv;
+    public String emailTemplateForm() {
+        return "template";
     }
 }
