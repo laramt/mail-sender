@@ -6,7 +6,7 @@ import com.project.mailsender.model.Email;
 import com.project.mailsender.repositories.EmailRepository;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.internet.MimeMessage;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -20,20 +20,24 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class EmailServiceImpl implements EmailService {
 
     private static final String EMAIL_SIMPLE_TEMPLATE = "html/email-simple";
-    private static final String EMAIL_WITHATTACHMENT_TEMPLATE = "html/email-attachment.html";
+    private static final String EMAIL_WITHATTACHMENT_TEMPLATE = "html/email-email.html";
+
 
     private final EmailRepository repository;
-
     private final JavaMailSender emailSender;
 
-    @Qualifier("emailTemplateEngine")
     private final TemplateEngine htmlTemplateEngine;
-
     private final EmailMapper mapper;
+
+    public EmailServiceImpl(EmailRepository repository, JavaMailSender emailSender, TemplateEngine htmlTemplateEngine, EmailMapper mapper) {
+        this.repository = repository;
+        this.emailSender = emailSender;
+        this.htmlTemplateEngine = htmlTemplateEngine;
+        this.mapper = mapper;
+    }
 
     public EmailDTO sendEmail(EmailDTO dto) {
         try {
