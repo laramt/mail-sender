@@ -14,14 +14,16 @@
 
   <p class="h4 mb-4 text-center">Use a template</p>
 
-
   <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
 
   <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
 
   <input type="text" id="subject" class="form-control mb-4" placeholder="subject">
 
-  <button class="btn btn-success btn-block" type="submit">Send</button>
+  <label class="form-label" for="customFile">file attachment</label>
+  <input type="file" class="form-control" id="customFile" />
+
+  <button class="btn btn-success btn-block mt-4" type="submit">Send</button>
 </form>
 
 <div th:replace="~{fragments :: footer}"></div>
