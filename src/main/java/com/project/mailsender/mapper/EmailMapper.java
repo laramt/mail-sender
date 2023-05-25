@@ -1,6 +1,5 @@
 package com.project.mailsender.mapper;
 
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.model.Email;
@@ -15,6 +14,10 @@ public class EmailMapper {
 
     @Autowired
     ModelMapper mapper;
+
+    public EmailMapper(ModelMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public Email toEmail(EmailDTO dto) {
         return mapper.map(dto, Email.class);

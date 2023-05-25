@@ -7,30 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 
 @RestController
+@RequestMapping("/email")
 public class EmailResource {
 
     @Autowired
     EmailService service;
-
-    @GetMapping("/home")
-    public ModelAndView home( ){
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
-    }
-
-    @GetMapping("/about")
-    public ModelAndView aboutPage() {
-        ModelAndView mv = new ModelAndView("about");
-        return mv;
-    }
-
-
 
     @PostMapping("/send-email")
     public ResponseEntity<EmailDTO> sendEmail(@RequestBody EmailDTO dto) throws MessagingException {
