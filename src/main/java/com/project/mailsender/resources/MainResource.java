@@ -23,4 +23,10 @@ public class MainResource {
         ModelAndView mv = new ModelAndView("about");
         return mv;
     }
+
+    @GetMapping("/email")
+    public ModelAndView emailForm( ){
+        ModelAndView mv = new ModelAndView("email");
+        return mv;
+    }
 }
