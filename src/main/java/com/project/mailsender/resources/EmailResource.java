@@ -40,17 +40,17 @@ public class EmailResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmailDTO> getEmailById(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<EmailDTO> getEmailById(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.findById(id));
     }
 
     @GetMapping("/{recipientName}")
-    public ResponseEntity<List<EmailDTO>> getByRecipientName(String recipientName) {
+    public ResponseEntity<List<EmailDTO>> getByRecipientName(@PathVariable String recipientName) {
         return ResponseEntity.ok().body(service.findByRecipientName(recipientName));
     }
 
      @GetMapping("/{sendDateEmail}")
-    public ResponseEntity<List<EmailDTO>> getBySendDate(LocalDateTime sendDateEmail) {
+    public ResponseEntity<List<EmailDTO>> getBySendDate(@PathVariable LocalDateTime sendDateEmail) {
         return ResponseEntity.ok().body(service.findBySendDateEmail(sendDateEmail));
     }
 
