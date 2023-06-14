@@ -35,7 +35,7 @@ public class EmailServiceImpl implements EmailService {
     private final TemplateEngine htmlTemplateEngine;
 
 
-
+    @Override
     public EmailDTO sendEmail(EmailDTO dto) {
         try {
             Email email = mapper.toEmail(dto);
@@ -62,6 +62,7 @@ public class EmailServiceImpl implements EmailService {
     }
 
 
+    @Override
     public EmailDTO sendTemplateEmail(EmailDTO dto) {
 
         try {
@@ -98,6 +99,8 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
+
+    @Override
     public EmailDTO sendTemplateEmailwithAttachment(EmailDTO dto) {
 
         try {
@@ -138,14 +141,25 @@ public class EmailServiceImpl implements EmailService {
         }
     }
 
+
+    @Override
     public List<EmailDTO> findAll() {
         return mapper.toEmailDTOList(repository.findAll());
     }
 
+    
+    @Override
     public EmailDTO findById(Long id) {
         Email email = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No email with id: " + id));
         return mapper.toEmailDTO(email);
+    }
+
+
+    @Override
+    public List<EmailDTO> findByRecipientName(String recipientName) {
+        List<Email> email = repository.findByRecipientName(recipientName);
+        return mapper.toEmailDTOList(email);
     }
 
 

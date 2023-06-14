@@ -10,6 +10,8 @@ public interface EmailService {
     EmailDTO sendTemplateEmail(EmailDTO dto);
     EmailDTO sendTemplateEmailwithAttachment(EmailDTO dto);
     List<EmailDTO> findAll();
+    
     EmailDTO findById(Long id);
+    List<EmailDTO> findByRecipientName(String recipientName);
 
 }

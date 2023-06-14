@@ -45,4 +45,9 @@ public class EmailResource {
         return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
     }
 
+    @GetMapping("/{recipientName}")
+    public ResponseEntity<List<EmailDTO>> getByRecipientName(String recipientName) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.findByRecipientName(recipientName));
+    }
+
 }
