@@ -2,6 +2,7 @@ package com.project.mailsender.services;
 
 import com.project.mailsender.dtos.EmailDTO;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface EmailService {
@@ -13,5 +14,7 @@ public interface EmailService {
     
     EmailDTO findById(Long id);
     List<EmailDTO> findByRecipientName(String recipientName);
+    List<EmailDTO> findBySendDateEmail(LocalDateTime sendDateEmail);
+
 
 }

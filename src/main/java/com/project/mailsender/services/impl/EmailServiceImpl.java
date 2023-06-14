@@ -163,4 +163,11 @@ public class EmailServiceImpl implements EmailService {
     }
 
 
+    @Override
+    public List<EmailDTO> findBySendDateEmail(LocalDateTime sendDateEmail) {
+        List<Email> email = repository.findBySendDateEmail(sendDateEmail);
+        return mapper.toEmailDTOList(email);
+    }
+
+
 }

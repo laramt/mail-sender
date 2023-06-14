@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -48,6 +49,11 @@ public class EmailResource {
     @GetMapping("/{recipientName}")
     public ResponseEntity<List<EmailDTO>> getByRecipientName(String recipientName) {
         return ResponseEntity.status(HttpStatus.OK).body(service.findByRecipientName(recipientName));
+    }
+
+     @GetMapping("/{sendDateEmail}")
+    public ResponseEntity<List<EmailDTO>> getBySendDate(LocalDateTime sendDateEmail) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.findBySendDateEmail(sendDateEmail));
     }
 
 }
