@@ -7,13 +7,9 @@ import java.util.List;
 public interface EmailService {
 
     EmailDTO sendEmail(EmailDTO dto);
-
     EmailDTO sendTemplateEmail(EmailDTO dto);
-
     EmailDTO sendTemplateEmailwithAttachment(EmailDTO dto);
-
     List<EmailDTO> findAll();
-
     EmailDTO findById(Long id);
 
 }
