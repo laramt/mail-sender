@@ -3,20 +3,21 @@ package com.project.mailsender.resources;
 import com.project.mailsender.dtos.EmailDTO;
 import com.project.mailsender.services.EmailService;
 import jakarta.mail.MessagingException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/email")
 public class EmailResource {
 
-    @Autowired
-    EmailService service;
+    
+   private final EmailService service;
 
     @PostMapping("/send-email")
     public ResponseEntity<EmailDTO> sendEmail(@RequestBody EmailDTO dto) throws MessagingException {
