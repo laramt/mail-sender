@@ -1,6 +1,5 @@
 <h1 align="center">Email Sender</h1>
-<p align="center">A simple repository for a Java application built with Spring and Thymeleaf to send emails using SMTP. This README provides a brief overview of the project and its functionalities.
-</p>
+<p align="center">A simple repository for a Java application built with Spring and Thymeleaf to send emails using SMTP.</p>
 <p align="center">
   <a href="https://www.java.com">
     <img src="https://img.shields.io/badge/Java-17-yellow.svg">
@@ -28,8 +27,9 @@ The following functionalities are available in this application:
 
 -  Sends manually written emails.
 -  Sends emails using templates, with or without attachment.
--  Retrieves all emails in a pageable format.
+-  Retrieves all emails.
 -  Retrieves an email by its ID.
+-  Retrieves emails by the recipient name and by the send date.
 
 ## Installation
 
@@ -37,7 +37,7 @@ To run this Java Spring project locally, please follow the instructions below:
 
 ### Prerequisites
 
-- Java Development Kit (JDK) 8 or later
+- Java Development Kit (JDK) 17 or later
 - Apache Maven
 
 ### Steps
@@ -47,9 +47,9 @@ To run this Java Spring project locally, please follow the instructions below:
 ```bash
   git clone https://github.com/laramt/mail-sender
   ````
-2. Open the backend folder in your preferred IDE.
+2. Open the folder in your preferred IDE.
 <br></br>
-4. Configure the application properties:
+4. Configure the application properties file:
 
   - Open the `application.properties` file located in the src/main/resources directory.
   - Update the necessary configuration properties such as the database connection details, server port, etc., based on your environment.
@@ -80,5 +80,5 @@ Replace your_smtp_host, your_smtp_port, your_username, and your_password with yo
 
 ## Contact
 
-If you have any questions or feedback regarding the Email Sender application, please feel free to reach out [here](mailto:your_email@example.com).
+If you have any questions or feedback regarding the Email Sender application, please feel free to reach out [here](mailto:laramnckt@gmail.com).
 
