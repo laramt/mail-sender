@@ -1,5 +1,4 @@
 <h1 align="center">Email Sender</h1>
-<p align="center">A simple repository for a Java application built with Spring and Thymeleaf to send emails using SMTP.</p>
 <p align="center">
   <a href="https://www.java.com">
     <img src="https://img.shields.io/badge/Java-17-yellow.svg">
@@ -9,76 +8,57 @@
   </a>
 </p>
 
+Para a versão em inglês, consulte o arquivo [README-EN.md](./README-EN.md).
 
-## Table of Contents
+## Introudução
 
-- [Introduction](#introduction)
-- [Functionalities](#functionalities)
-- [Installation](#installation)
-- [Contact](#contact)
+O Email Sender é um sistema Java que permite enviar e-mails usando o protocolo SMTP. Ele utiliza o Spring e o Thymeleaf para criar e enviar vários tipos de e-mails.
 
-## Introduction
+## Funcionalidades
 
-Email Sender is a Java application that allows you to send emails using the SMTP protocol. It utilizes Spring and Thymeleaf to create and send various types of emails.
+As seguintes funcionalidades estão disponíveis:
 
-## Functionalities
+- Enviar e-mails escritos manualmente.
+- Enviar e-mails usando templates, com ou sem anexos.
+- Recupera todos os e-mails.
+- Recupera um e-mail pelo seu ID.
+- Recupera e-mails pelo nome do destinatário e pela data de envio.
+<br></br>
 
-The following functionalities are available in this application:
+## Instalação
 
--  Sends manually written emails.
--  Sends emails using templates, with or without attachment.
--  Retrieves all emails.
--  Retrieves an email by its ID.
--  Retrieves emails by the recipient name and by the send date.
+Para executar este projeto Java Spring localmente, siga as instruções abaixo:
 
-## Installation
-
-To run this Java Spring project locally, please follow the instructions below:
-
-### Prerequisites
-
-- Java Development Kit (JDK) 17 or later
-- Apache Maven
-
-### Steps
-
-1. Clone the repository to your local machine:
+1. Clone o repositório em sua máquina local
 
 ```bash
   git clone https://github.com/laramt/mail-sender
   ````
-2. Open the folder in your preferred IDE.
+2. Importe o projeto na sua IDE preferida.
+
+3. Configure as variáveis de ambiente.
+
+4. Configure o arquivo application.properties para incluir as configurações de SMTP necessárias.
+
+5. Execute o projeto na sua IDE.
 <br></br>
-4. Configure the application properties file:
 
-  - Open the `application.properties` file located in the src/main/resources directory.
-  - Update the necessary configuration properties such as the database connection details, server port, etc., based on your environment.
-  - Create and configure the `emailconfig.properties` file with the required SMTP settings.
+## Configuração
 
-
-Please note that the configuration file for SMTP settings is not available in this repository for security reasons, as it contains private information.
-Here's a snippet of the code you can use as a reference:
-
+Para o envio de e-mails automáticos, é necessário adicionar as configurações de email no arquivo ``application.properties``.
 
 ```` properties
 # EMAIL
-spring.mail.host=smtp.your_smtp_host
-spring.mail.port=your_smtp_port
-spring.mail.username= your_username
-spring.mail.password= your_password
-spring.mail.properties.mail.smtp.auth=true
-spring.mail.properties.mail.smtp.starttls.enable=true
-
-````
-
-Replace your_smtp_host, your_smtp_port, your_username, and your_password with your specific SMTP server details. Ensure that you have the appropriate credentials and SMTP server information from your email service provider.
-
-4. Build the project using Maven.
+spring.mail.host= seu_host_smtp
+spring.mail.port= sua_porta_smtp
+spring.mail.username= seu_email
+spring.mail.password= sua_senha
+spring.mail.properties.mail.smtp.auth= true
+spring.mail.properties.mail.smtp.starttls.enable= true
+ ````
+Substitua os valores seu_host_smtp, sua_porta_smtp, seu_email e sua_senha pelas suas configurações específicas do servidor SMTP. Certifique-se de ter as credenciais apropriadas e as informações do servidor SMTP de seu provedor de serviços de e-mail.
 <br></br>
-5. Run the application.
 
+## Contato
 
-## Contact
-
-If you have any questions or feedback regarding the Email Sender application, please feel free to reach out [here](mailto:laramnckt@gmail.com).
-
+Se você tiver alguma dúvida ou comentário, sinta-se à vontade para entrar em contato [aqui](mailto:laramnckt@gmail.com).
